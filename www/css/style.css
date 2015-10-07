@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+a {
+    text-decoration: underline;
+    color: #000000;
+}
+.book p a {
+    color: #545454;
+}
+a:hover {
+    text-decoration: none;
+    color: grey !important;
+}
+ion-content {
+    max-width: 800px;
+    margin: 0 auto;
+}

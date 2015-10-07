@@ -1,0 +1,19 @@
+
+<ion-view view-title="{{book.name}}">
+  <ion-content class="padding">
+      <div class="list card">
+          <div class="item item-divider">
+              <h1>{{book.name}}</h1>
+          </div>
+          <div class="item">
+             Author: <a href="#/tab/author/{{author.id}}">{{author.name}}</a>
+          </div>
+          <div class="item">
+              Genre: <a href="#/tab/genres/{{book.genre}}">{{book.genre}}</a>
+          </div>
+          <div class="item item-body">
+              <p>{{book.desc}}</p>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

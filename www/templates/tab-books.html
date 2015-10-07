@@ -1,0 +1,17 @@
+<ion-view view-title="Books">
+  <ion-content >
+      <ion-list>
+          <div class="list card" ng-if="genre">
+              <div class="item item-divider">
+                  <p>Genre: {{genre}}</p>
+              </div>
+          </div>
+          <div class="list card"  ng-repeat="author in authors">
+            <div class="item book" ng-repeat="book in author.books" type="item-text-wrap" >
+                <h2><a href="#/tab/book/{{author.id}}/{{book.id}}"> {{book.name}}</a></h2>
+                <p><a href="#/tab/author/{{author.id}}">{{author.name}}</a></p>
+            </div>
+          </div>
+      </ion-list>
+  </ion-content>
+</ion-view>
