@@ -18,10 +18,12 @@ angular.module('starter.services', [])
                 }
                 return null;
             },
+            getAll: function() {
+                return authors;
+            },
             getBook: function(authorId,bookId) {
                 for (var i = 0; i < authors.length; i++) {
                     if (authors[i].id === parseInt(authorId) && authors[i].books) {
-                        console.log(authors[i].books)
                         for (var y = 0; y < authors[i].books.length; y++) {
                             if (authors[i].books[y].id === parseInt(bookId)){
                                 return authors[i].books[y];

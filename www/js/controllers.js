@@ -3,8 +3,13 @@ angular.module('starter.controllers', [])
         $scope.authors = Authors.getAuthorsByGenre($stateParams.genre);
         $scope.genre = $stateParams.genre;
     })
-    .controller('BooksCtrl', function($scope,$state, Authors) {
-        Authors.getAuthors().then(function (data) {$scope.authors = data.data;});
+    .controller('BooksCtrl', function($scope,$state, $stateParams, Authors) {
+        $scope.authors = Authors.getAll();
+        if(!$scope.authors.length) {
+            Authors.getAuthors().then(function (data) {
+                $scope.authors = data.data;
+            });
+        }
     })
     .controller('BookDetailCtrl', function($scope, $stateParams, Authors) {
         $scope.book = Authors.getBook($stateParams.authorId,$stateParams.bookId);
@@ -12,7 +17,10 @@ angular.module('starter.controllers', [])
     })
 
     .controller('AuthorsCtrl', function($scope,Authors) {
-        Authors.getAuthors().then(function (data) {$scope.authors = data.data;});
+        $scope.authors = Authors.getAll();
+        if(!$scope.authors.length) {
+            Authors.getAuthors().then(function (data) {$scope.authors = data.data;});
+        }
     })
 
     .controller('AuthorDetailCtrl', function($scope,$stateParams,Authors) {
