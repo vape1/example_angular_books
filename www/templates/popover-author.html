@@ -1,0 +1,18 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-divider" ng-click="popover.hide()">
+                <a href="#/tab/author/{{popover.author.id}}">
+                    <h2>{{popover.author.name}}</h2>
+                </a>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item" ng-repeat="book in popover.author.books" ng-click="popover.hide()">
+                <a href="#/tab/book/{{popover.author.id}}/{{book.id}}">
+                    <p>{{book.name}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-popover-view>

@@ -2,7 +2,7 @@
   <ion-content>
       <ion-list>
           <div class="list card">
-            <ion-item class="item" ng-repeat="author in authors" type="item-text-wrap" href="#/tab/author/{{author.id}}">
+            <ion-item class="item" ng-repeat="author in authors" type="item-text-wrap" ng-click="showPopover($event,author)">
               <h2>{{author.name}}</h2>
             </ion-item>
           </div>

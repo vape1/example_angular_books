@@ -16,11 +16,21 @@ angular.module('starter.controllers', [])
         $scope.author = Authors.get($stateParams.authorId);
     })
 
-    .controller('AuthorsCtrl', function($scope,Authors) {
+    .controller('AuthorsCtrl', function($scope,Authors,$ionicPopover) {
         $scope.authors = Authors.getAll();
         if(!$scope.authors.length) {
             Authors.getAuthors().then(function (data) {$scope.authors = data.data;});
         }
+        $ionicPopover.fromTemplateUrl('templates/popover-author.html', {
+            scope: $scope
+        }).then(function (popover) {
+            $scope.popover = popover;
+
+        });
+        $scope.showPopover = function ($event, author) {
+                $scope.popover.author = author;
+                $scope.popover.show($event);
+        };
     })
 
     .controller('AuthorDetailCtrl', function($scope,$stateParams,Authors) {
